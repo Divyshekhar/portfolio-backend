@@ -23,11 +23,12 @@ func MailController(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-	if err := SendEmail(form); err != nil{
+	if err := SendEmail(form); err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to send email"})
 		return
 	}
-	c.JSON(200, gin.H{"message":"Email sent successfully"})
+	c.JSON(200, gin.H{"message": "Email sent successfully"})
+
 }
 
 func SendEmail(form ContactForm) error {
